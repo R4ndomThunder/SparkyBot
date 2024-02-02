@@ -1,0 +1,25 @@
+{
+  "name": "sparkybot",
+  "version": "1.0.0",
+  "description": "Sparky is an All-in-one bot to make server management and moderation easy.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "R4ndomThunder",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "canvas": "^2.11.2",
+    "commandkit": "^0.1.10",
+    "core-js": "^3.35.1",
+    "cron": "^3.1.6",
+    "discord-html-transcripts": "^3.2.0",
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.4.1",
+    "mongoose": "^8.1.1",
+    "nodemon": "^3.0.3",
+    "ws": "^8.16.0"
+  }
+}
