@@ -53,5 +53,5 @@ module.exports = async (client, c) => {
     })
 
 
-    scheduleFloorPriceChecker.start()
+    // scheduleFloorPriceChecker.start()
 }
