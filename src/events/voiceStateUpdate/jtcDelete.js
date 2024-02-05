@@ -31,7 +31,7 @@ module.exports = async (oldState, newState) => {
     });
     try {
       const embed = new EmbedBuilder()
-        .setColor("Blue")
+        .setColor(0x223f98)
         .setTimestamp()
         .setAuthor({ name: `🔊 Join to Create System` })
         .setFooter({ text: `🔊 Channel Deleted` })

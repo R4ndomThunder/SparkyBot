@@ -42,7 +42,7 @@ module.exports = async (interaction, client) => {
             );
 
             const dmEmbed = new EmbedBuilder()
-                .setColor("Blue")
+                .setColor(0x223f98)
                 .setTitle("Your ticket has been closed")
                 .setDescription(
                     "Thanks for contacting us! If you need anything else, feel free to create another ticket"

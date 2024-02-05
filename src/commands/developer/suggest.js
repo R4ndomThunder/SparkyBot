@@ -45,7 +45,7 @@ module.exports = {
             const id = interaction.user.id;
             const member = interaction.member;        
             const server = interaction.guild.name || "No server provided";        
-            const channel = await client.channels.cache.get("1096033195578884136");
+            const channel = await client.channels.cache.get(process.env.SUGGEST_LOG_CHANNEL_ID);
 
             const embed = new EmbedBuilder()
             .setColor("DarkGold")

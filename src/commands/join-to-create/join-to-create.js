@@ -70,7 +70,7 @@ module.exports = {
             });
 
             const embed = new EmbedBuilder()
-              .setColor("Green")
+              .setColor(0x223f98)
               .setDescription(
                 `🔊 The join to create system has been setup in ${channel}`
               );
@@ -90,7 +90,7 @@ module.exports = {
             });
           else {
             const embed2 = new EmbedBuilder()
-              .setColor("Blue")
+              .setColor(0x223f98)
               .setDescription(
                 "🔊 The join to create system has been **disabled**"
               );

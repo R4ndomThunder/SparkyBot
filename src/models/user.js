@@ -5,9 +5,9 @@ const User = new Schema({
   userId: { type: String, required: true },
   balance: { type: Number },
   lastDaily: { type: Date },
-  birthDay: {type: Number},
-  birthMonth: { type: Number},
-  birthYear: { type: Number}
+  birthDay: { type: Number },
+  birthMonth: { type: Number },
+  birthYear: { type: Number },
 });
 
 module.exports = model("Users", User);

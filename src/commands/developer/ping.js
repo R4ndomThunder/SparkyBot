@@ -11,7 +11,7 @@ module.exports = {
         const ping = reply.createdTimestamp - interaction.createdTimestamp;
 
         const embed = new EmbedBuilder()
-            .setColor('White')
+            .setColor(0x223f98)
             .setTitle(`**Pong!**`)
             .addFields({ name: 'Client', value: `> ${ping} ms`, inline: true }, { name: 'Websocket', value: `> ${client.ws.ping} ms`, inline: true })
             .setFooter({ text: `Test bot's ping` })

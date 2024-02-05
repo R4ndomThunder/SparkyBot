@@ -72,7 +72,7 @@ module.exports = {
         ),
     options:
     {
-        deleted: false,
+        deleted: true,
         devOnly: true
     },
     run: async ({ interaction, client }) => {

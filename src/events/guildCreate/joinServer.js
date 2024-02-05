@@ -1,7 +1,7 @@
 const { EmbedBuilder } = require("discord.js");
 
 module.exports = async (guild, client) => {
-  const channel = await client.channels.cache.get(process.env.LOG_CHANNEL_ID);
+  const channel = await client.channels.cache.get(process.env.JOIN_LOG_CHANNEL_ID);
 
   const name = guild.name;
   const memberCount = guild.memberCount;

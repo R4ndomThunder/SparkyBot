@@ -18,7 +18,7 @@ const {
     let cmsg = await member.send({
       embeds: [
         new EmbedBuilder()
-          .setColor("Blue")
+          .setColor(0x223f98)
           .setTitle("Captcha Verification")
           .setImage("attachment://captcha.png"),
       ],

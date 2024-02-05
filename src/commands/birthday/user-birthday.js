@@ -70,7 +70,7 @@ module.exports = {
 
         const embed = new EmbedBuilder()
           .setTitle("Birthday set")
-          .setColor("Aqua")
+          .setColor(0x223f98)
           .setDescription(
             `I'll wish <@${interaction.user.id}>'s **${thisYearDate.getFullYear() - parsedDate.getFullYear()
             }th** birthday, on **${thisYearDate.toLocaleDateString()}** 🎂`
@@ -89,7 +89,7 @@ module.exports = {
         if (!user2) {
           const embed2 = new EmbedBuilder()
             .setTitle("Birthday clear")
-            .setColor("Red")
+            .setColor(0x223f98)
             .setDescription(`You haven't set your birthday yet`)
             .setTimestamp();
 
@@ -104,7 +104,7 @@ module.exports = {
 
         const embed2 = new EmbedBuilder()
           .setTitle("Birthday clear")
-          .setColor("Aqua")
+          .setColor(0x223f98)
           .setDescription(`You birthday has been cleared`)
           .setTimestamp();
 

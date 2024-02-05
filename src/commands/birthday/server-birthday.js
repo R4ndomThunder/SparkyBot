@@ -55,7 +55,7 @@ module.exports = {
         await guild.save();
 
         const embed3 = new EmbedBuilder()
-          .setColor("Green")
+          .setColor(0x223f98)
           .setTitle(`Birthday configuration`)
           .setDescription(`Birthday announcement channel`)
           .addFields({ name: "Channel", value: `> ${channel.name}` })

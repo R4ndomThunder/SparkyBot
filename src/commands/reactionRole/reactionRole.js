@@ -87,7 +87,7 @@ module.exports = {
               roleId: role.id,
             });
             const embed = new EmbedBuilder()
-              .setColor("Blurple")
+              .setColor(0x223f98)
               .setTitle("Reaction role setup")
               .setDescription("Your role has been set")
               .addFields(
@@ -113,7 +113,7 @@ module.exports = {
             const role = data.roleId;
 
             const embed = new EmbedBuilder()
-              .setColor("Blurple")
+              .setColor(0x223f98)
               .setTitle("Reaction role setup")
               .setDescription("Your role has been removed")
               .addFields(

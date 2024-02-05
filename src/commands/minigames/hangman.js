@@ -4,7 +4,7 @@ const { Hangman } = require('discord-gamecord');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('hangman')
-        .setDescription('Play hangman')
+        .setDescription('Play Hangman')
         .addStringOption(option =>
             option
                 .setName('theme')
@@ -36,7 +36,7 @@ module.exports = {
             isSlashGame: true,
             embed: {
                 title: 'Hangman',
-                color: '#5865F2'
+                color: '#223f98'
             },
             hangman: { hat: '🎩', head: '😟', shirt: '👕', pants: '🩳', boots: '👞👞' },
             timeoutTime: 60000,

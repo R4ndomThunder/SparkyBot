@@ -73,7 +73,7 @@ module.exports = {
         }
 
         const embed = new EmbedBuilder()
-          .setColor("Blue")
+          .setColor(0x223f98)
           .setTitle("🎫 Ticket System")
           .setDescription(
             "**If you have a problem, open a ticket to talk to staff members!**"

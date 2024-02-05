@@ -15,7 +15,7 @@ module.exports = {
             isSlashGame: true,
             embed: {
                 title: '2048',
-                color: '#5865F2'
+                color: '#223f98'
             },
             emojis: {
                 up: '⬆️',
@@ -30,13 +30,7 @@ module.exports = {
 
         Game.startGame();
 
-        Game.on('gameOver', async (result) => {
-            // const embed = new EmbedBuilder()
-            //     .setTitle(result.result)
-            //     .setDescription(`Your score: ${result.score}`)
-            //     .setTimestamp()
-
-            // await interaction.channel.send({ embeds: [embed] })
+        Game.on('gameOver', async (result) => {           
         });
     }
 }

@@ -16,7 +16,7 @@ module.exports = {
 
             const embed = new EmbedBuilder()
                 .setAuthor({ iconURL: interaction.user.avatarURL(), name: `${interaction.user.displayName}`, })
-                .setColor(0xFBD462)
+                .setColor(0x223f98)
                 .setTitle(`It's ${result}`)
                 .setImage(result == 'heads' ? 'https://rollthedice.online/assets/images/upload/dice/dado-cara-cruz/cara_moneda.png' : 'https://rollthedice.online/assets/images/upload/dice/dado-cara-cruz/cruz_moneda.png')
                 .setTimestamp()

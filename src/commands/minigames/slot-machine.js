@@ -14,7 +14,7 @@ module.exports = {
             isSlashGame: true,
             embed: {
                 title: 'Slot Machine',
-                color: '#5865F2'
+                color: '#223f98'
             },
             slots: ['🍇', '🍊', '🍋', '🍌']
         });

@@ -46,7 +46,7 @@ module.exports = {
                     {
                         const data = await autopublish.findOne({ guildId: interaction.guild.id })
                         const embed = new EmbedBuilder()
-                            .setColor('Blue')
+                            .setColor(0x223f98)
                             .setDescription(`📢 All messages sent in ${channel} will be auto published!`)
 
                         if (!data) {
@@ -73,7 +73,7 @@ module.exports = {
                         return await interaction.reply({ content: 'You have not added any channels to the auto publish system', ephemeral: true })
                     else {
                         const embed = new EmbedBuilder()
-                            .setColor('Blue')
+                            .setColor(0x223f98)
                             .setDescription(`${channel} has been removed off of your auto publish list`)
 
 

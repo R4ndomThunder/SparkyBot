@@ -56,7 +56,7 @@ const {
             role: role.id,
           });
           const embed = new EmbedBuilder()
-            .setColor("Blue")
+            .setColor(0x223f98)
             .setDescription(
               ":white_check_mark: The captcha system has been setup!"
             );
@@ -73,7 +73,7 @@ const {
           await Captcha.deleteMany({ guildId: interaction.guild.id });
   
           const embed2 = new EmbedBuilder()
-            .setColor("Blue")
+            .setColor(0x223f98)
             .setDescription(
               ":white_check_mark:  The captcha system has been disabled!"
             );

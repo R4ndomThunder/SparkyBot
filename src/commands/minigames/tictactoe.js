@@ -26,7 +26,7 @@ module.exports = {
             opponent: opponent,
             embed: {
                 title: 'Tic Tac Toe',
-                color: '#5865F2',
+                color: '#223f98',
                 statusTitle: 'Status',
                 overTitle: 'Game Over'
             },

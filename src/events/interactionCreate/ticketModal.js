@@ -10,6 +10,7 @@ module.exports = async (interaction) => {
   try {
     if (interaction.isButton()) return;
     if (interaction.isChatInputCommand()) return;
+    if (interaction.isMessageContextMenuCommand()) return;
 
     const modal = new ModalBuilder()
       .setTitle("Provide us with more information")
@@ -40,7 +41,7 @@ module.exports = async (interaction) => {
 
       const result = choices.join("");
       const data = await Ticket.findOne({ guildId: interaction.guild.id });
-      
+
       if (data) {
         const filter = { guildId: interaction.guild.id };
         const update = { ticket: result };

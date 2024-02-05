@@ -17,7 +17,7 @@ module.exports = {
                 .setRequired(true)
         )
         .setDMPermission(false)
-        .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageGuild),
+        .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageNicknames),
     options:
     {
         deleted: false

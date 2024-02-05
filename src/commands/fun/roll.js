@@ -30,7 +30,7 @@ module.exports = {
             const embed = new EmbedBuilder()
                 .setAuthor({ iconURL: interaction.user.avatarURL(), name: `${interaction.user.displayName}`, })
                 .setThumbnail('https://cdn.pixabay.com/photo/2017/08/31/04/01/d20-2699387_1280.png')
-                .setColor('Red')
+                .setColor(0x223f98)
                 .addFields({ name: 'Rolls', value: `${result}` })
                 .setTimestamp()
 

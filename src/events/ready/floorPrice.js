@@ -33,7 +33,7 @@ module.exports = async (client, c) => {
                                 .setThumbnail(response.data.collection.image_url)
                                 .setURL(`https://opensea.io/collection/${data.collectionName}`)
                                 .setImage(response.data.collection.large_image_url)
-                                .setColor('Random')
+                                .setColor(0x223f98)
                                 .addFields(
                                     // { name: 'Collection', value: data.collectionName, inline: true },
                                     { name: 'Floor price', value: `${floorPrice}`, inline: true },

@@ -43,7 +43,7 @@ module.exports = {
           const channel = interaction.options.getChannel("channel");
           const message = interaction.options.getString("message");
           const embed = new EmbedBuilder()
-            .setColor("Green")
+            .setColor(0x223f98)
             .setDescription(
               `:white_check_mark: Your leave channel has been set to ${channel}`
             );
@@ -66,7 +66,7 @@ module.exports = {
           break;
         case "delete":
           const embed2 = new EmbedBuilder()
-            .setColor("Green")
+            .setColor(0x223f98)
             .setDescription(
               `:white_check_mark: Your leave message has been removed`
             );

@@ -23,13 +23,13 @@ module.exports = {
         let number = options.getInteger('limit')
 
         const embed = new EmbedBuilder()
-            .setColor('Blurple')
+            .setColor(0x223f98)
             .setDescription(`:white_check_mark: Deleted **${number}** messages`)
 
         await interaction.channel.bulkDelete(number)
             .catch(async (err) => {
                 const embed = new EmbedBuilder()
-                    .setColor('Blurple')
+                    .setColor(0x223f98)
                     .setDescription(`❌ Error deleting **${number}** messages\n\`${err.message}\``)
 
                 return await interaction.reply({ embeds: [embed], ephemeral: true })

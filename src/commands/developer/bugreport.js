@@ -54,12 +54,12 @@ module.exports = {
             const id = interaction.user.id;
             const member = interaction.member;        
             const server = interaction.guild.name || "No server provided";        
-            const channel = await client.channels.cache.get("1096033195578884136");
+            const channel = await client.channels.cache.get(process.env.BUGREPORT_LOG_CHANNEL_ID);
 
             const embed = new EmbedBuilder()
             .setColor("Red")
             .setTitle("⚠️ Bug report ⚠️")
-            .addFields({ name: "User ID", value: "> " + id })
+            .addFields({ name: "User ID", value: "> " + id})
             .addFields({ name: "Member", value: "> <@" + member + ">" })
             .addFields({ name: "Server ID", value: "> " + server })
             .addFields({ name: "Command Reported", value: "> " + command })

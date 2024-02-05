@@ -30,7 +30,7 @@ module.exports = {
         const channel = options.getChannel('channel') || interaction.channel
 
         const embed = new EmbedBuilder()
-            .setColor('Blurple')
+            .setColor(0x223f98)
             .setDescription(`:white_check_mark: ${channel} now has ${duration} seconds of **slowmode**`)
 
         channel.setRateLimitPerUser(duration).catch(err => {

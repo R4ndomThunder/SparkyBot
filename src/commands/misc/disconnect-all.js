@@ -29,7 +29,7 @@ module.exports = {
         });
 
         const embed = new EmbedBuilder()
-            .setColor('Blurple')
+            .setColor(0x223f98)
             .setDescription(`:white_check_mark: Kicked **${members.size}** users`)
 
         await interaction.reply({ embeds: [embed], ephemeral: true })

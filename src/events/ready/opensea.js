@@ -46,7 +46,7 @@ async function SetupNFT(client, c) {
                             .setAuthor({ name: event.event_type == EventType.ITEM_RECEIVED_BID ? 'New bid' : 'New offer' })
                             .addFields({ name: 'Crypto', value: `**${parseFloat(data.payment_token.eth_price).toFixed(5)} ${data.payment_token.symbol}**`, inline: true }, { name: 'Flat', value: `**${parseFloat(data.payment_token.usd_price).toFixed(2)} USD**`, inline: true })
                             .setImage(data.item.metadata.animation_url ?? data.item.metadata.image_url)
-                            .setColor('Random')
+                            .setColor(0x223f98)
                             .setTimestamp()
 
                         await channel.send({ embeds: [embed] })
@@ -71,7 +71,7 @@ async function SetupNFT(client, c) {
                             .setAuthor({ name: 'Item sold' })
                             .addFields({ name: 'Crypto', value: `**${parseFloat(data.payment_token.eth_price).toFixed(5)} ${data.payment_token.symbol}**`, inline: true }, { name: 'Flat', value: `**${parseFloat(data.payment_token.usd_price).toFixed(2)} USD**`, inline: true })
                             .setImage(data.item.metadata.animation_url ?? data.item.metadata.image_url)
-                            .setColor('Random')
+                            .setColor(0x223f98)
                             .setTimestamp()
 
                         await channel.send({ embeds: [embed] })
@@ -96,7 +96,7 @@ async function SetupNFT(client, c) {
                             .setAuthor({ name: 'New item listed' })
                             .addFields({ name: 'Crypto', value: `**${parseFloat(data.payment_token.eth_price).toFixed(5)} ${data.payment_token.symbol}**`, inline: true }, { name: 'Flat', value: `**${parseFloat(data.payment_token.usd_price).toFixed(2)} USD**`, inline: true })
                             .setImage(data.item.metadata.animation_url ?? data.item.metadata.image_url)
-                            .setColor('Random')
+                            .setColor(0x223f98)
                             .setTimestamp()
 
                         await channel.send({ embeds: [embed] })

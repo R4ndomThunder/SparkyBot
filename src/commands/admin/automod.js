@@ -90,7 +90,7 @@ const {
             if (!rule) return;
   
             const embed = new EmbedBuilder()
-              .setColor("Blue")
+              .setColor(0x223f98)
               .setDescription(
                 ":white_check_mark: Your AutoMod rule has been created. All swears will be stopped by Sparky"
               );
@@ -139,7 +139,7 @@ const {
             if (!rule2) return;
   
             const embed2 = new EmbedBuilder()
-              .setColor("Blue")
+              .setColor(0x223f98)
               .setDescription(
                 ":white_check_mark: Your AutoMod rule has been created. All messages containing the word " +
                   word +
@@ -187,7 +187,7 @@ const {
             if (!rule3) return;
   
             const embed3 = new EmbedBuilder()
-              .setColor("Blue")
+              .setColor(0x223f98)
               .setDescription(
                 ":white_check_mark: Your AutoMod rule has been created. All messages suspected of spam will be deleted by Sparky"
               );
@@ -236,7 +236,7 @@ const {
             if (!rule4) return;
   
             const embed4 = new EmbedBuilder()
-              .setColor("Blue")
+              .setColor(0x223f98)
               .setDescription(
                 ":white_check_mark: Your AutoMod rule has been created. All messages suspected of mention spam will be deleted by Sparky"
               );

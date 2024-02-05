@@ -109,7 +109,7 @@ module.exports = {
         {
           const counterType = options.getString('counter-type')
           let guildCounter = await ChannelCounter.findOne({ guildId: interaction.guild.id })
-
+          let guildMembers = interaction.guild.members.cache
           if (!guildCounter) {
             guildCounter = await ChannelCounter.create({
               guildId: interaction.guild.id,
@@ -120,16 +120,16 @@ module.exports = {
 
           if (!guildCounter.counters.includes({ counterType: counterType })) {
             let name = ''
-            if (data.counterType == 'allmembers') {
+            if (counterType == 'allmembers') {
               name = `Members: ${guildMembers.size}`
             }
 
-            if (data.counterType == 'onlymembers') {
+            if (counterType == 'onlymembers') {
               const count = await guildMembers.filter(member => !member.user.bot)
               name = `Users: ${count.size}`
             }
 
-            if (data.counterType == 'onlybots') {
+            if (counterType == 'onlybots') {
               const count = await guildMembers.filter(member => member.user.bot)
               name = `Bots: ${count.size}`
             }

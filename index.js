@@ -8,9 +8,8 @@ const {
 } = require("discord.js");
 
 const { CommandKit } = require("commandkit");
-const emitterFile = require('./src/eventHandler.js')
+const emitterFile = require("./src/eventHandler.js");
 const emitter = emitterFile.emitter;
-
 
 const path = require("path");
 
@@ -46,7 +45,10 @@ const process = require("node:process");
 
 process.on("unhandledRejection", (reason, promise) => {
   console.error(
-    `Unhandled Rejection at:`, reason, '\nRejection reason:', promise
+    `Unhandled Rejection at:`,
+    reason,
+    "\nRejection reason:",
+    promise
   );
 });
 
@@ -69,8 +71,8 @@ process.on("uncaughtExceptionMonitor", (err, origin) => {
       commandsPath: path.join(__dirname, "src/commands"),
       eventsPath: path.join(__dirname, "src/events"),
       validationsPath: path.join(__dirname, "src/validations"),
-      devGuildIds: ["881503065319022623"],
-      devUserIds: ["248175154566266880"],
+      devGuildIds: [process.env.DEV_GUILD_ID],
+      devUserIds: [process.env.DEV_CLIENT_ID],
       skipBuiltInValidations: true,
     });
   } catch (err) {

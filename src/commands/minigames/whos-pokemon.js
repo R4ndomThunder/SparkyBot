@@ -15,7 +15,7 @@ module.exports = {
             isSlashGame: true,
             embed: {
                 title: 'Who\'s The Pokemon',
-                color: '#5865F2'
+                color: '#223f98'
             },
             timeoutTime: 60000,
             winMessage: 'You guessed it right! It was a {pokemon}.',
