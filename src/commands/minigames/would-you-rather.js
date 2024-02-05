@@ -12,7 +12,7 @@ module.exports = {
     run: async ({ interaction, client }) => {
 
         const Game = new WouldYouRather({
-            message: message,
+            message: interaction,
             isSlashGame: true,
             embed: {
               title: 'Would You Rather',

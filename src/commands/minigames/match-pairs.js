@@ -13,7 +13,7 @@ module.exports = {
     run: async ({ interaction, client }) => {
 
         const Game = new MatchPairs({
-            message: message,
+            message: interaction,
             isSlashGame: true,
             embed: {
               title: 'Match Pairs',

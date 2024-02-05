@@ -10,7 +10,7 @@ module.exports = {
   },
   run: async ({ interaction, client }) => {
     const Game = new Minesweeper({
-      message: message,
+      message: interaction,
       isSlashGame: true,
       embed: {
         title: "Minesweeper",

@@ -11,7 +11,7 @@ module.exports = {
     },
     run: async ({ interaction, client }) => {
         const Game = new FastType({
-            message: message,
+            message: interaction,
             isSlashGame: true,
             embed: {
               title: 'Fast Type',

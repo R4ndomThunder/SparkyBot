@@ -12,7 +12,7 @@ module.exports = {
     run: async ({ interaction, client }) => {
 
         const Game = new FindEmoji({
-            message: message,
+            message: interaction,
             isSlashGame: true,
             embed: {
               title: 'Find Emoji',
