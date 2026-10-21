@@ -1,83 +1,71 @@
 require("dotenv").config();
-const mongoose = require("mongoose");
-const {
-  Client,
-  IntentsBitField,
-  Partials,
-  GatewayIntentBits,
-} = require("discord.js");
 
-const { CommandKit } = require("commandkit");
-const emitterFile = require("./src/eventHandler.js");
-const emitter = emitterFile.emitter;
+const { Client, GatewayIntentBits, Partials, Collection } = require("discord.js");
+const db = require("./src/db");
 
-const path = require("path");
+const isDev = process.env.NODE_ENV !== "production";
 
 const client = new Client({
   intents: [
-    IntentsBitField.Flags.Guilds,
-    IntentsBitField.Flags.GuildMembers,
-    IntentsBitField.Flags.GuildMessages,
-    IntentsBitField.Flags.GuildVoiceStates,
-    IntentsBitField.Flags.GuildMessageReactions,
-    IntentsBitField.Flags.GuildPresences,
-    IntentsBitField.Flags.MessageContent,
-    IntentsBitField.Flags.DirectMessages,
-    IntentsBitField.Flags.DirectMessageReactions,
-    IntentsBitField.Flags.DirectMessageTyping,
-    GatewayIntentBits.DirectMessages,
-    GatewayIntentBits.DirectMessageReactions,
-    GatewayIntentBits.DirectMessageTyping,
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.GuildVoiceStates,
+    GatewayIntentBits.MessageContent,
   ],
-  partials: [
-    Partials.Channel,
-    Partials.Message,
-    Partials.Reaction,
-    Partials.VoiceState,
-    Partials.GuildMember,
-    Partials.ThreadMember,
-    Partials.User,
-    Partials.GuildScheduledEvent,
-  ],
+  partials: [Partials.Channel, Partials.GuildMember, Partials.User, Partials.VoiceState],
 });
 
-const process = require("node:process");
+client.commands = new Collection();
+client.db = db;
+client.isDev = isDev;
 
-process.on("unhandledRejection", (reason, promise) => {
-  console.error(
-    `Unhandled Rejection at:`,
-    reason,
-    "\nRejection reason:",
-    promise
-  );
+// Registry for buttons/select menus: customId prefix -> owning command module.
+client.componentHandlers = new Collection();
+
+process.on("unhandledRejection", (reason) => {
+  console.error("[unhandledRejection]", reason);
 });
-
 process.on("uncaughtException", (err) => {
-  console.error(`uncaughtException at: ${err}`);
-});
-
-process.on("uncaughtExceptionMonitor", (err, origin) => {
-  console.error(`uncaughtExceptionMonitor at: ${err}\n${origin}`);
+  console.error("[uncaughtException]", err);
 });
 
 (async () => {
-  try {
-    mongoose.set("strictQuery", false);
-    await mongoose.connect(process.env.MONGO_CONNECTION);
-    console.log("Connected to database.");
-
-    new CommandKit({
-      client,
-      commandsPath: path.join(__dirname, "src/commands"),
-      eventsPath: path.join(__dirname, "src/events"),
-      validationsPath: path.join(__dirname, "src/validations"),
-      devGuildIds: [process.env.DEV_GUILD_ID],
-      devUserIds: [process.env.DEV_CLIENT_ID],
-      skipBuiltInValidations: true,
-    });
-  } catch (err) {
-    console.log(`Error on init: ${err}`);
+  // Load commands
+  const fs = require("fs");
+  const path = require("path");
+  const cmdDirs = fs.readdirSync(path.join(__dirname, "src/commands"));
+  for (const dir of cmdDirs) {
+    const files = fs
+      .readdirSync(path.join(__dirname, "src/commands", dir))
+      .filter((f) => f.endsWith(".js"));
+    for (const file of files) {
+      const cmd = require(path.join(__dirname, "src/commands", dir, file));
+      if (cmd?.data?.name) {
+        client.commands.set(cmd.data.name, cmd);
+        console.log(`[commands] loaded ${cmd.data.name}`);
+      }
+      if (Array.isArray(cmd?.components)) {
+        for (const prefix of cmd.components) client.componentHandlers.set(prefix, cmd);
+      }
+    }
   }
 
-  client.login(process.env.TOKEN);
+  // Load events
+  const eventFiles = fs
+    .readdirSync(path.join(__dirname, "src/events"))
+    .filter((f) => f.endsWith(".js"));
+  for (const file of eventFiles) {
+    const event = require(path.join(__dirname, "src/events", file));
+    if (event?.name) {
+      if (event.once) client.once(event.name, event.execute);
+      else client.on(event.name, event.execute);
+      console.log(`[events] loaded ${event.name}`);
+    }
+  }
+
+  await client.login(process.env.DISCORD_TOKEN);
+
+  // Background poller for social feeds (Twitch / YouTube / Bluesky).
+  require("./src/social").startScheduler(client);
 })();
